@@ -1,0 +1,83 @@
+# Exemplo da pizza
+
+version: "3.1"
+
+nlu:
+- intent: saudacao
+  examples: |
+    - oi
+    - olá
+    - bom dia
+    - boa tarde
+    - boa noite
+    - i ae?
+
+- intent: despedida
+  examples: |
+    - tchau
+    - adeus
+    - falou
+    - até mais
+
+- intent: fazer_pedido
+  examples: |
+    - Gostaria de uma pizza
+    - Quero fazer um pedido 
+    - Gostaria de algo
+
+
+- intent: informar_sabor_pizza
+  examples: |
+    - de [calabresa](sabor)
+    - com [mussarela](sabor)
+    - [frango](sabor)
+    - quero uma [portuguesa](sabor)
+
+- intent: informar_tamanho_pizza
+  examples: |
+    - quero uma pizza [média](tamanho)
+    - [média](tamanho)
+    - [pequena](tamanho)
+    - uma [grande](tamanho)
+
+- intent: informar_tipo_borda
+  examples: |
+    - com [borda recheada](borda)
+    - [borda fina](borda)
+    - [borda vulcão](borda)
+    - quero uma pizza com [borda recheada](borda)
+    - [sem borda](borda) por favor
+    - borda [recheada](borda)
+    - borda [fina](borda)
+    - [sem](borda) borda
+
+- intent: confirmar_pedido
+  examples: |
+    - sim 
+    - claro
+    - com certeza
+    - isso
+    - ok
+    - sim, é isso mesmo
+    - isso mesmo
+
+- intent: cancelar_pedido
+  examples: |
+    - não
+    - não quero mais
+    - não, obrigado
+    - não, não quero
+    - não quero mas   
+
+- intent: agradecer
+  examples: |
+    - obrigado
+    - valeu
+    - muito obrigado
+    - muito obrigada
+    - agradeço
+
+entities:
+- sabor
+- tamanho
+- borda
