@@ -45,7 +45,7 @@ responses:
   - text: "Qual a forma de pagamento💲? Aceitamos PIX, dinheiro 💵, débito e crédito 💳"
 
   utter_finalizar_pedido:
-  - text: "Seu pedido chegará em breve. 🤌"
+  - text: "Obrigado pela preferência!! Seu pedido chegará em breve. 🤌"
 
 slots:
   sabor:

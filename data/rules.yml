@@ -27,7 +27,6 @@ rules:
   - action: action_validar_tamanho
   - action: utter_pedir_borda
 
-
 - rule: Pedir confirmação após receber todas as informações
   condition:
   - slot_was_set:
@@ -37,3 +36,13 @@ rules:
   steps:
   - intent: informar_tipo_borda
   - action: utter_confirmar_pedido
+
+- rule: Confirmar pedido e calcular preço
+  steps:
+  - intent: confirmar_pedido
+  - action: action_calcular_preco
+
+- rule: Finalizar o pedido apos a forma de pagamento
+  steps:
+  - intent: informar_forma_pagamento
+  - action: action_finalizar_pedido

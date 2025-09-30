@@ -65,7 +65,7 @@ stories:
   - action: utter_confirmar_pedido
   - intent: confirmar_pedido
   - action: action_calcular_preco
-  - intent: informar_forma_pagamento # <--- NOVO FLUXO
-  - action: action_finalizar_pedido  # <--- NOVO FLUXO
+  - intent: informar_forma_pagamento 
+  - action: action_finalizar_pedido  
   - intent: despedida
   - action: utter_despedida
