@@ -10,10 +10,12 @@ intents:
   - confirmar_pedido
   - cancelar_pedido
   - agradecer
+  - calcular_preco
+  - informar_forma_pagamento
 
 responses:
   utter_saudacao:
-  - text: "Oi, seja bem vindo a nossa pizzaria. Como posso te ajudar?"
+  - text: "Oi, seja bem vindo a nossa Pizzaria 🍕 Italiana 🤌. Como posso te ajudar?"
 
   utter_despedida:
   - text: "Até logo... o ministério da saúde não recomenda essa pizza"
@@ -34,35 +36,58 @@ responses:
   - text: "Pedido cancelado. Se precisar de algo é só avisar"
 
   utter_agradecer:
-  - text: "A Pizzaria agradece, aguardamos você novamente"
+  - text: "A Pizzaria Italiana agradece 🤌, aguardamos você novamente"
+  
+  utter_informar_preco:
+  - text: "O preço do seu pedido é R${preco}"
+
+  utter_pedir_forma_pagamento:
+  - text: "Qual a forma de pagamento💲? Aceitamos PIX, dinheiro 💵, débito e crédito 💳"
+
+  utter_finalizar_pedido:
+  - text: "Seu pedido chegará em breve. 🤌"
 
 slots:
-  sabor: 
+  sabor:
     type: text
     mappings:
       - type: from_entity
         entity: sabor
   
-  tamanho: 
+  tamanho:
     type: text
     mappings:
       - type: from_entity
         entity: tamanho
 
-  borda: 
+  borda:
     type: text
     mappings:
       - type: from_entity
         entity: borda
+  preco:
+    type: float
+    mappings:
+      - type: from_entity
+        entity: preco
+  forma_pagamento:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: forma_pagamento
 
 entities:
 - sabor
 - tamanho
 - borda
+- preco
+- forma_pagamento
 
 actions:
 - action_validar_sabor
-
+- action_validar_tamanho
+- action_calcular_preco
+- action_finalizar_pedido
 
 session_config:
   session_expiration_time: 60

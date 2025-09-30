@@ -2,7 +2,7 @@ version: "3.1"
 
 stories:
 
-- story: fluxo pedido
+- story: fluxo pedido com preco
   steps:
   - intent: saudacao
   - action: utter_saudacao
@@ -12,11 +12,14 @@ stories:
   - action: action_validar_sabor
   - action: utter_pedir_tamanho
   - intent: informar_tamanho_pizza
+  - action: action_validar_tamanho
   - action: utter_pedir_borda
   - intent: informar_tipo_borda
   - action: utter_confirmar_pedido
   - intent: confirmar_pedido
-  - action: utter_agradecer
+  - action: action_calcular_preco
+  - intent: informar_forma_pagamento 
+  - action: action_finalizar_pedido  
   - intent: despedida
   - action: utter_despedida
 
@@ -30,6 +33,7 @@ stories:
   - action: action_validar_sabor
   - action: utter_pedir_tamanho
   - intent: informar_tamanho_pizza
+  - action: action_validar_tamanho
   - action: utter_pedir_borda
   - intent: informar_tipo_borda
   - action: utter_confirmar_pedido
@@ -38,5 +42,30 @@ stories:
   - intent: despedida
   - action: utter_despedida
 
-
-
+- story: fluxo onde usuario informa tamanho e borda juntos
+  steps:
+  - intent: fazer_pedido
+  - action: utter_pedir_sabor
+  - intent: informar_sabor_pizza
+    entities:
+    - sabor: "mussarela"
+  - action: action_validar_sabor
+  - slot_was_set:
+    - sabor: "mussarela"
+  - action: utter_pedir_tamanho
+  - intent: informar_tamanho_pizza # Ex: usuário diz "grande sem borda"
+    entities:
+    - tamanho: "grande"
+    - borda: "sem borda"
+  - action: action_validar_tamanho
+  - slot_was_set:
+    - tamanho: "grande"
+  - slot_was_set:
+    - borda: "sem borda"
+  - action: utter_confirmar_pedido
+  - intent: confirmar_pedido
+  - action: action_calcular_preco
+  - intent: informar_forma_pagamento # <--- NOVO FLUXO
+  - action: action_finalizar_pedido  # <--- NOVO FLUXO
+  - intent: despedida
+  - action: utter_despedida

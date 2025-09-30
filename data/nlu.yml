@@ -22,16 +22,36 @@ nlu:
 - intent: fazer_pedido
   examples: |
     - Gostaria de uma pizza
-    - Quero fazer um pedido 
+    - Quero fazer um pedido
     - Gostaria de algo
+    - quero pizza        
+    - quero uma pizza    
+    - pode me ver uma pizza 
+    - uma pizza por favor      
+    - to com fome, quero pizza 
 
 
 - intent: informar_sabor_pizza
   examples: |
     - de [calabresa](sabor)
+    - de [calabreza](sabor)
     - com [mussarela](sabor)
     - [frango](sabor)
     - quero uma [portuguesa](sabor)
+    - uma pizza de [marguerita](sabor) por favor
+    - uma [calabresa](sabor) com [mussarela](sabor)
+    - uma [frango](sabor) com [catupiry](sabor)
+    - pode ser de [picanha](sabor)
+    - uma [mussarela](sabor) com [borda recheada](borda)
+    - uma [calabresa](sabor) com [borda fina](borda)
+    - uma [portuguesa](sabor) com [borda vulcão](borda)
+    - uma [marguerita](sabor) [sem borda](borda)
+    - de [calabresa](sabor) com [borda recheada](borda)
+    - de [frango](sabor) com [borda fina](borda)
+    - de [mussarela](sabor) com [borda vulcão](borda)
+    - de [portuguesa](sabor) [sem borda](borda)
+    - de [marguerita](sabor) com [borda recheada](borda)
+
 
 - intent: informar_tamanho_pizza
   examples: |
@@ -39,6 +59,11 @@ nlu:
     - [média](tamanho)
     - [pequena](tamanho)
     - uma [grande](tamanho)
+    - uma [média](tamanho) [sem borda](borda) por favor
+    - uma [pequena](tamanho) com [borda recheada](borda)
+    - uma [grande](tamanho) com [borda fina](borda)
+    - uma [média](tamanho) [sem borda](borda)
+    
 
 - intent: informar_tipo_borda
   examples: |
@@ -50,10 +75,29 @@ nlu:
     - borda [recheada](borda)
     - borda [fina](borda)
     - [sem](borda) borda
+    - quero uma [grande](tamanho) com [borda fina](borda)
+    - uma [média](tamanho) [sem borda](borda)
+    - uma [pequena](tamanho) com [borda recheada](borda)
+    - uma [grande](tamanho) com [borda vulcão](borda)
+    - nenhuma
+    - quero [sem borda](borda)
+
+
+- intent: informar_forma_pagamento
+  examples: |
+    - vou pagar com [pix](forma_pagamento)
+    - [dinheiro](forma_pagamento)
+    - pode ser [crédito](forma_pagamento)
+    - no [débito](forma_pagamento)
+    - [pix](forma_pagamento)
+    - vai ser no [crédito](forma_pagamento)
+    - [débito](forma_pagamento)
+    - [dinheiro](forma_pagamento) mesmo
+    - [crédito](forma_pagamento) por favor
 
 - intent: confirmar_pedido
   examples: |
-    - sim 
+    - sim
     - claro
     - com certeza
     - isso
@@ -67,7 +111,7 @@ nlu:
     - não quero mais
     - não, obrigado
     - não, não quero
-    - não quero mas   
+    - não quero mas
 
 - intent: agradecer
   examples: |
@@ -77,7 +121,15 @@ nlu:
     - muito obrigada
     - agradeço
 
+- intent: calcular_preco
+  examples: |
+    - quanto custa?
+    - qual o preço?
+    - qual o valor?
+    - quanto fica?
+
 entities:
 - sabor
 - tamanho
 - borda
+- preco

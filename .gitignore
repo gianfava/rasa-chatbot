@@ -1,0 +1,15 @@
+# Ambiente Virtual
+venv/
+__pycache__/
+
+# Arquivos gerados pelo Rasa
+.rasa/cache/
+models/
+results/
+.DS_Store
+
+# Arquivos de log
+*.log
+
+# Credenciais (se você tiver)
+credentials.yml

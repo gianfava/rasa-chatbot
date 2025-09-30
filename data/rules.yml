@@ -18,13 +18,22 @@ rules:
   - action: action_validar_sabor
   - action: utter_pedir_tamanho
 
-- rule: Confirmar borda
+- rule: Sempre validar tamanho e pedir borda (se necessário)
+  condition:
+  - slot_was_set:
+    - borda: null
   steps:
   - intent: informar_tamanho_pizza
+  - action: action_validar_tamanho
   - action: utter_pedir_borda
 
-- rule: Confirmar pedido
-  steps:
-  - intent: confirmar_pedido
-  - action: utter_agradecer
 
+- rule: Pedir confirmação após receber todas as informações
+  condition:
+  - slot_was_set:
+    - sabor: true
+  - slot_was_set:
+    - tamanho: true
+  steps:
+  - intent: informar_tipo_borda
+  - action: utter_confirmar_pedido
